@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div id="FormInsert" >
+   
+        <input id="Text1" type="text" />
+        <input id="Text2" type="text" />
+        <input id="Text3" type="text" />
+        <input id="Text4" type="text" />
+        <input id="Text5" type="text" />
+        <input id="Text6" type="text" />
+        <input id="Text7" type="text" />
+        <input id="Password1" type="password" />
+        <input id="Checkbox1" type="checkbox" />
+
+
+        <input id="Hidden1" type="hidden" />
+
+        <input type="text" id="txtName" />
+        <input type="text" id="txtAddress" />
+        <input type="text" id="txtContact" />
+        <input type="text" id="txtEmailAddress" />
+
+        <input id="Button1" type="submit" value="Insert" />
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script>
+
+    var stdname = $("#txtName").val(),
+        stdadd = $("#txtAddress").val(),
+        stdcont = $("#txtContact").val()
+    test = {
+        Name: stdname,
+        Address: stdadd,
+        ContactNumber:stdcont
+    }
+
+    $("#Button1").click(
+        function(){
+             
+            $.ajax({
+                url:"InsertData",
+                type: "POST",
+                dataType: "json",
+                data: test,
+                success: function (response) {
+                    alert("Done");
+                }
+
+            });
+        });
+
+    </script>
+<h1>totalCartItems@</h1>
+</div>
+
